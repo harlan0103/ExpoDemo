@@ -3,11 +3,13 @@ import './App.css';
 import React from 'react';
 import { Button } from 'antd';
 
+import Test from './components/Test';
+import HomePage from './components/HomePage'
 
 function App() {
   return (
     <div className="App">
-      <Button type="primary">Button</Button>
+      <HomePage/>
     </div>
   );
 }
