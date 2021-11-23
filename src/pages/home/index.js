@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { Layout, Row, Col, Image, List, Card } from 'antd';
 
-import imgUrl from '../statics/img/placeholder_img.jpg';    // PLACEHOLDER
+import imgUrl from '@/statics/img/placeholder_img.jpg'
 
 // Nation flags
-import flag_br from '../statics/img/br.png';
-import flag_cn from '../statics/img/cn.png';
-import flag_dz from '../statics/img/dz.png';
-import flag_es from '../statics/img/es.png';
-import flag_fr from '../statics/img/fr.png';
-import flag_gr from '../statics/img/gr.png';
-import flag_jp from '../statics/img/jp.png';
-import flag_kr from '../statics/img/kr.png';
-import flag_nl from '../statics/img/nl.png';
-import flag_sg from '../statics/img/sg.png';
+import flag_br from '@/statics/img/br.png';
+import flag_cn from '@/statics/img/cn.png';
+import flag_dz from '@/statics/img/dz.png';
+import flag_es from '@/statics/img/es.png';
+import flag_fr from '@/statics/img/fr.png';
+import flag_gr from '@/statics/img/gr.png';
+import flag_jp from '@/statics/img/jp.png';
+import flag_kr from '@/statics/img/kr.png';
+import flag_nl from '@/statics/img/nl.png';
+import flag_sg from '@/statics/img/sg.png';
 
-import NaviBar from "./NaviBar/";
+import NaviBar from "@/components/NaviBar/";
 
 const { Header, Footer, Content } = Layout;
 const { Meta } = Card;
