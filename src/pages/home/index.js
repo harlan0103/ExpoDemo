@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Layout, Row, Col, Image, List, Card } from 'antd';
 
-import imgUrl from '@/statics/img/placeholder_img.jpg'
+import imgUrl from '@/statics/img/placeholder_img.jpg';
+
+import { WorldMap } from '@/components/Map/';
 
 // Nation flags
 import flag_br from '@/statics/img/br.png';
@@ -43,6 +45,8 @@ const HomePage = () => {
             <Content>
                 {/* 需要将图片宽度与窗口宽度保持一致 */}
                 <Image src={ imgUrl } preview={false} />
+                {/* <WorldMap /> */}
+
 
 
                 {/* 国家展区以及地区展区部分 */}
