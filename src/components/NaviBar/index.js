@@ -1,5 +1,6 @@
 import React from "react";
-import { Menu } from 'antd';
+import { Menu, Button } from 'antd';
+import '../../statics/css/naviBar.css';
 
 const { SubMenu } = Menu;
 
@@ -12,7 +13,7 @@ const data = {
         },
         {
             key: 'News',
-            title: '资讯活动',
+            title: '新闻中心',
             items: [
                 {
                     key: 'News_overview',
@@ -30,7 +31,7 @@ const data = {
         },
         {
             key: 'Merchants',
-            title: '参展商户',
+            title: '参展商家',
             items: [
                 {
                     key: 'Merchants_id_1',
@@ -62,10 +63,12 @@ const data = {
             key: 'About_us',
             title: '关于我们',
         },
+        /*
         {
             key: 'About_expo',
             title: '关于世博',
         },
+        */
         {
             key: 'Login',
             title: '登录',
@@ -76,7 +79,7 @@ const data = {
         },
         {
             key: 'Language',
-            title: 'En',
+            title: 'ENGLISH',
         },
     ],
 };
@@ -92,17 +95,24 @@ const NaviBar = () => {
                             <Menu.ItemGroup>
                                 { item.items.map(subItem => (
                                     <Menu.Item key={ subItem.key }>
-
+                                        { subItem.title }
                                     </Menu.Item>
                                 ))}
                             </Menu.ItemGroup>
                         </SubMenu>
                     ) : (
                         <Menu.Item key={ item.key }>
-                            { item.title }
+                            { item.key == "Register" || item.key == "Login" ? 
+                                <Button type="primary" size="small"> 
+                                    {item.title} 
+                                </Button> : 
+                                <div> 
+                                    {item.title} 
+                            </div> }
                         </Menu.Item>
                     )
                 )) }
+
             </Menu>
         </div>
     );

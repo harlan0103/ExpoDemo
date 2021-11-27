@@ -18,6 +18,8 @@ import flag_nl from '@/statics/img/nl.png';
 import flag_sg from '@/statics/img/sg.png';
 
 import NaviBar from "@/components/NaviBar/";
+import Exhibition from '../../components/Exhibition';
+import Partner from '../../components/Partner';
 
 const { Header, Footer, Content } = Layout;
 const { Meta } = Card;
@@ -51,36 +53,21 @@ const HomePage = () => {
 
                 {/* 国家展区以及地区展区部分 */}
                 <div>
-                        <Row>
-                            <Col span={16} offset={4} style={{ background:"#D5D5D5" }}>
-                                <Row gutter={[24, 40]} justify="space-around" align="middle">
-                                    <Col span={2}> 国家展区 </Col>
-                                    { nationFlags.map((flag, index) => (
-                                        <Col key={ index } span={2}> <img src={flag} style={{width:80, height:50}}/> </Col>
-                                    ))}
-                                    <Col span={2}> 更多+ </Col>
-
-                                    <Col span={2}> 地区展区 </Col>
-                                    { regions.map((region, index) => (
-                                        <Col key={ index } span={2}> {region} </Col>
-                                    ))}
-                                    <Col span={2}> 更多+ </Col>
-                                </Row>
-                            </Col>
-                        </Row>
-                    </div>
+                    <Exhibition/>
+                </div>
 
                 {/* 新闻动态部分 */}
                 <div>
-                    <Card hoverable style={{width:240}} cover={<img src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
-                        <Meta title="大会活动" description="这是一个新闻小卡片" />
-                        <span> 查看更多 </span>
-                    </Card>
+                    
+                </div>
+
+                {/* 世博联盟战略合作伙伴 */}
+                <div>
+                    <Partner />
                 </div>
             </Content>
 
             <Footer>
-
             </Footer>
         </Layout>
     );
