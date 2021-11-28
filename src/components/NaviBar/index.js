@@ -1,8 +1,8 @@
+import { Button, Menu } from 'antd';
 import React from "react";
-import { Menu, Button, Divider } from 'antd';
 import '../../statics/css/naviBar.css';
-
 import './index.css';
+
 
 const { SubMenu } = Menu;
 
@@ -91,29 +91,29 @@ const NaviBar = () => {
     return (
         <div>
             <Menu mode="horizontal" theme="light">
-                { data.items.map(item => (
+                {data.items.map(item => (
                     item.items && item.items.length > 0 ? (
-                        <SubMenu key={ item.key } title={ item.title }>
+                        <SubMenu key={item.key} title={item.title}>
                             <Menu.ItemGroup>
-                                { item.items.map(subItem => (
-                                    <Menu.Item key={ subItem.key }>
-                                        { subItem.title }
+                                {item.items.map(subItem => (
+                                    <Menu.Item key={subItem.key}>
+                                        {subItem.title}
                                     </Menu.Item>
                                 ))}
                             </Menu.ItemGroup>
                         </SubMenu>
                     ) : (
-                        <Menu.Item key={ item.key }>
-                            { item.key == "Register" || item.key == "Login" ? 
-                                <Button type="primary" size="large" className="naviBar-button"> 
-                                    {item.title} 
-                                </Button> : 
-                                <div> 
-                                    {item.title} 
-                            </div> }
+                        <Menu.Item key={item.key}>
+                            {item.key == "Register" || item.key == "Login" ?
+                                <Button type="primary" size="large" className="naviBar-button">
+                                    {item.title}
+                                </Button> :
+                                <div>
+                                    {item.title}
+                                </div>}
                         </Menu.Item>
                     )
-                )) }
+                ))}
             </Menu>
         </div>
     );

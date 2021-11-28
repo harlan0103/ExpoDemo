@@ -1,22 +1,19 @@
-import React from "react";
-import { Row, Col, Space } from 'antd';
-import './index.css'
-
 // 国旗
 import flag_cn from '@/statics/img/cn.png';
 import flag_kh from '@/statics/img/kh.png';
-import flag_la from '@/statics/img/la.png';
-import flag_th from '@/statics/img/th.png';
 import flag_kr from '@/statics/img/kr.png';
-
+import flag_la from '@/statics/img/la.png';
 // 展台图片
 import partner_luzhou from '@/statics/img/Luzhoulaojiao.png';
 import partner_langjiu from '@/statics/img/Sichuanlangjiu.png';
+import flag_th from '@/statics/img/th.png';
+import { Col, Row, Space } from 'antd';
+import React from "react";
+import './index.css';
 
-import { render } from "sass";
 
 // 目前这些数据先写死，等后来服务端开发后，会从服务端获得数据
-const nations = [ 
+const nations = [
     {
         nation: "中国馆",
         flag: flag_cn
@@ -39,7 +36,7 @@ const nations = [
     }
 ];
 
-const regions = [ '泸州展区', '西安展区', '渭南展区', '铜川展区', '咸阳展区', '延安展区', '更多+' ];
+const regions = ['泸州展区', '西安展区', '渭南展区', '铜川展区', '咸阳展区', '延安展区', '更多+'];
 
 const partners = [
     {
@@ -55,7 +52,7 @@ const partners = [
 const titleSize = 4;
 
 const Exhibition = () => {
-    return(
+    return (
         <div className="exhibition">
 
             <Space size="large">   </Space>
@@ -63,7 +60,7 @@ const Exhibition = () => {
             <Row gutter={[16, 48]}>
 
                 {/* 国家展馆 */}
-                <Col span={24}> 
+                <Col span={24}>
                     <Row align="middle">
                         <Col span={titleSize} align="center">
                             国家展馆
@@ -73,20 +70,20 @@ const Exhibition = () => {
                                 {
                                     nations.map(nation => (
                                         <Col flex={1} align="center">
-                                            <Row>   
+                                            <Row>
                                                 <Col span={24}>
-                                                    <img src={ nation.flag } style={{ width: 80, height: 50 }}/>
+                                                    <img src={nation.flag} style={{ width: 80, height: 50 }} />
                                                 </Col>
                                             </Row>
-                                            <Row>   
-                                                <Col span={24}> 
-                                                    <span className="exhibition-item exhibition-item-cover"> { nation.nation } </span> 
+                                            <Row>
+                                                <Col span={24}>
+                                                    <span className="exhibition-item exhibition-item-cover"> {nation.nation} </span>
                                                 </Col>
                                             </Row>
                                         </Col>
                                     ))
                                 }
-                            </Row>                            
+                            </Row>
                         </Col>
                     </Row>
                 </Col>
@@ -101,7 +98,7 @@ const Exhibition = () => {
                             <Row>
                                 {
                                     regions.map(region => (
-                                        <Col flex={1} aligh="center"> 
+                                        <Col flex={1} aligh="center">
                                             <span className="exhibition-item exhibition-item-cover"> {region} </span>
                                         </Col>
                                     ))
@@ -112,7 +109,7 @@ const Exhibition = () => {
                 </Col>
 
                 {/*热门展台*/}
-                <Col span={24}> 
+                <Col span={24}>
                     <Row align="middle" >
                         <Col span={titleSize} align="center">
                             热门展台
@@ -122,14 +119,14 @@ const Exhibition = () => {
                                 {
                                     partners.map(partner => (
                                         <Col flex={1} align="center">
-                                            <Row>   
+                                            <Row>
                                                 <Col span={24}>
-                                                    <img src={ partner.img } style={{ width: 200, height: 100 }}/>
+                                                    <img src={partner.img} style={{ width: 200, height: 100 }} />
                                                 </Col>
                                             </Row>
-                                            <Row>   
+                                            <Row>
                                                 <Col span={24}>
-                                                    <span className="exhibition-item exhibition-item-cover"> { partner.name } </span>
+                                                    <span className="exhibition-item exhibition-item-cover"> {partner.name} </span>
                                                 </Col>
                                             </Row>
                                         </Col>

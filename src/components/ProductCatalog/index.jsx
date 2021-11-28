@@ -1,4 +1,4 @@
-import { Space, Row, Col } from 'antd';
+import { Col, Row } from 'antd';
 import React, { useMemo, useState } from 'react';
 import './index.scss';
 
