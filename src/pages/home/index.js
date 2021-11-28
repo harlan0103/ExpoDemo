@@ -4,18 +4,17 @@ import Exhibition from '../../components/Exhibition';
 import ExhibitOverview from '../../components/ExhibitOverview';
 import CustomFooter from '../../components/Footer';
 import CustomeHeader from '../../components/Header';
+import NewsAction from '../../components/NewsAction';
 import Partner from '../../components/Partner';
 import ProductCatalog from "../../components/ProductCatalog";
 import SearchBar from '../../components/SearchBar';
 import { WorldMap } from './Map/';
 
-
-
 // 目前这些数据先写死，等后来服务端开发后，会从服务端获得数据
 const { Text } = Typography;
 
 const HomePage = () => {
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = useState(false);
 
     const onClose = () => {
         setVisible(false);
@@ -46,6 +45,7 @@ const HomePage = () => {
                 <Exhibition />
 
                 {/* 新闻动态部分 */}
+                <NewsAction />
 
                 {/* 商品类别目录 */}
                 <ProductCatalog />
