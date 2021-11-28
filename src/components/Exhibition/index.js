@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col } from 'antd';
+import { Row, Col, Space } from 'antd';
 import './index.css'
 
 // 国旗
@@ -57,19 +57,22 @@ const titleSize = 4;
 const Exhibition = () => {
     return(
         <div className="exhibition">
+
+            <Space size="large">   </Space>
+
             <Row gutter={[16, 48]}>
 
                 {/* 国家展馆 */}
                 <Col span={24}> 
                     <Row align="middle">
-                        <Col span={titleSize} style={{ textAlign: "center" }}>
+                        <Col span={titleSize} align="center">
                             国家展馆
                         </Col>
                         <Col span={12}>
                             <Row>
                                 {
                                     nations.map(nation => (
-                                        <Col flex={1} style={{ textAlign: "center" }}>
+                                        <Col flex={1} align="center">
                                             <Row>   
                                                 <Col span={24}>
                                                     <img src={ nation.flag } style={{ width: 80, height: 50 }}/>
@@ -77,7 +80,7 @@ const Exhibition = () => {
                                             </Row>
                                             <Row>   
                                                 <Col span={24}> 
-                                                    <span> { nation.nation } </span> 
+                                                    <span className="exhibition-item exhibition-item-cover"> { nation.nation } </span> 
                                                 </Col>
                                             </Row>
                                         </Col>
@@ -91,15 +94,15 @@ const Exhibition = () => {
                 {/*地方展区*/}
                 <Col span={24}>
                     <Row>
-                        <Col span={titleSize} style={{ textAlign: "center" }}>
+                        <Col span={titleSize} align="center">
                             地方展区
                         </Col>
                         <Col span={16}>
                             <Row>
                                 {
                                     regions.map(region => (
-                                        <Col flex={1} style={{ textAlign: "center" }}> 
-                                            <span> {region} </span>
+                                        <Col flex={1} aligh="center"> 
+                                            <span className="exhibition-item exhibition-item-cover"> {region} </span>
                                         </Col>
                                     ))
                                 }
@@ -111,14 +114,14 @@ const Exhibition = () => {
                 {/*热门展台*/}
                 <Col span={24}> 
                     <Row align="middle" >
-                        <Col span={titleSize} style={{ textAlign: "center" }}>
+                        <Col span={titleSize} align="center">
                             热门展台
                         </Col>
                         <Col span={12}>
                             <Row>
                                 {
                                     partners.map(partner => (
-                                        <Col flex={1} style={{ textAlign: "center" }}>
+                                        <Col flex={1} align="center">
                                             <Row>   
                                                 <Col span={24}>
                                                     <img src={ partner.img } style={{ width: 200, height: 100 }}/>
@@ -126,7 +129,7 @@ const Exhibition = () => {
                                             </Row>
                                             <Row>   
                                                 <Col span={24}>
-                                                    <span> { partner.name } </span>
+                                                    <span className="exhibition-item exhibition-item-cover"> { partner.name } </span>
                                                 </Col>
                                             </Row>
                                         </Col>

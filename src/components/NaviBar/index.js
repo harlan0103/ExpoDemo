@@ -105,7 +105,7 @@ const NaviBar = () => {
                     ) : (
                         <Menu.Item key={ item.key }>
                             { item.key == "Register" || item.key == "Login" ? 
-                                <Button type="primary" size="large"> 
+                                <Button type="primary" size="large" className="naviBar-button"> 
                                     {item.title} 
                                 </Button> : 
                                 <div> 
