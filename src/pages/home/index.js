@@ -3,7 +3,7 @@ import { Layout, Row, Col, Image, List, Card } from 'antd';
 
 import imgUrl from '@/statics/img/placeholder_img.jpg';
 
-import { WorldMap } from '@/components/Map/';
+import { WorldMap } from './Map/';
 
 // Nation flags
 import flag_br from '@/statics/img/br.png';
@@ -21,6 +21,7 @@ import NaviBar from "@/components/NaviBar/";
 
 const { Header, Footer, Content } = Layout;
 const { Meta } = Card;
+
 
 // 目前这些数据先写死，等后来服务端开发后，会从服务端获得数据
 const nationFlags = [ flag_br, flag_cn, flag_dz, flag_es, flag_fr, flag_gr, flag_jp, flag_kr, flag_nl, flag_sg ];
@@ -44,8 +45,8 @@ const HomePage = () => {
 
             <Content>
                 {/* 需要将图片宽度与窗口宽度保持一致 */}
-                <Image src={ imgUrl } preview={false} />
-                {/* <WorldMap /> */}
+                {/* <Image src={ imgUrl } preview={false} /> */}
+                <WorldMap />
 
 
 
