@@ -3,7 +3,6 @@
 .container {
     position: relative;
     width: 100%;
-    height: 100%;
 
     .city {
         position: absolute;
@@ -13,7 +12,7 @@
 
         // 呼吸圈的长宽
         // $circle-width: 20px;
-        $circle-width: 10px;
+        $circle-width: 15px;
         $circle-height: $circle-width;
 
         // 圆点的长宽

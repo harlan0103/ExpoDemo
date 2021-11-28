@@ -1,40 +1,40 @@
 import React, { useState, useRef  } from 'react';
 
 import './index.scss'
-import worldMapImg from  '@/statics/img/world_map.jpg'
+import worldMapImg from  '@/statics/img/world_map.png'
 
-import { DEFAULT_PADDING } from '../Const'
+// import { DEFAULT_PADDING } from '../Const'
 
 // 参展国家的信息和在地图上的相对位置，目前写死，以后可以从服务端获得
 const rawCities = [
     {
         name: '中国', // 国家名
         // 相对地图上的坐标
-        top: 41.5,
+        top: 50.5,
         left: 38.5,
         shouldShowCircle: false, // 是否应该显示呼吸圈
     },
     {
         name: '韩国',
-        top: 38.5,
+        top: 46.5,
         left: 41.7,
         shouldShowCircle: false,
     },
     {
         name: '老挝',
-        top: 46.5,
+        top: 55.5,
         left: 36.5,
         shouldShowCircle: false,
     },
     {
         name: '柬埔寨',
-        top: 50,
+        top: 59,
         left: 37,
         shouldShowCircle: false,
     },
     {
         name: '泰国',
-        top: 49.3,
+        top: 58.3,
         left: 35.5,
         atLeft: true, // 是否名称应该显示在左边
         shouldShowCircle: false,
@@ -52,7 +52,7 @@ const WorldMap = () => {
         const { width: imgWidth, height: imgHeight } = imgRef.current;
         const cities = rawCities.map(city => {
             const top = imgHeight * (city.top) / 100 + 'px';
-            const left = imgWidth * (city.left) / 100 + 100 + 'px';
+            const left = imgWidth * (city.left) / 100 + 'px';
             return {
                 ...city,
                 top,
@@ -75,12 +75,7 @@ const WorldMap = () => {
     }
 
     return (
-        <div
-            className="container"
-            style={{
-                padding: DEFAULT_PADDING,
-            }}
-        >
+        <div className="container">
             <img
                 ref={imgRef}
                 src={ worldMapImg }

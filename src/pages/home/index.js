@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
-import { Layout, Row, Col, Image, List, Card } from 'antd';
-
 import imgUrl from '@/statics/img/placeholder_img.jpg';
+import { Layout, Drawer, Image, Typography, Card } from 'antd';
+import React, { useState } from 'react';
+import Exhibition from '../../components/Exhibition';
+import ExhibitOverview from '../../components/ExhibitOverview';
+import CustomFooter from '../../components/Footer';
+import CustomeHeader from '../../components/Header';
+import Partner from '../../components/Partner';
+import ProductCatalog from "../../components/ProductCatalog";
+import SearchBar from '../../components/SearchBar';
 
 import { WorldMap } from './Map/';
 
@@ -26,64 +32,83 @@ const { Meta } = Card;
 // 目前这些数据先写死，等后来服务端开发后，会从服务端获得数据
 const nationFlags = [ flag_br, flag_cn, flag_dz, flag_es, flag_fr, flag_gr, flag_jp, flag_kr, flag_nl, flag_sg ];
 const regions = [ '上海展区', '重庆展区', '北京展区', '陕西展区', '柬埔寨展区', '泰国展区', '香港展区', '澳大利亚展区', '美国展区', '俄罗斯展区' ];
+const { Text } = Typography;
 
 const HomePage = () => {
+    const [visible, setVisible] = useState(true);
 
-    const [imgWidth, imgHeight] = useState(0);
+    const onClose = () => {
+        setVisible(false);
+    };
+
+    const cookieCommonStyle = {
+        backgroundColor: "rgb(51,51,51)",
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
 
     return (
-        <Layout>
-            <Header>
-                <div>
-                    <Row>   
-                        {/* antd组件 Menu 好像无法将子项目向右对其，目前使用 Col 将 Header 部分一分为二*/}
-                        <Col span={12}> Logo </Col>
-                        <Col span={12}> <NaviBar/> </Col>
-                    </Row>
-                </div>
-            </Header>
+        <>
+            <CustomeHeader />
 
-            <Content>
+            <div>
                 {/* 需要将图片宽度与窗口宽度保持一致 */}
                 {/* <Image src={ imgUrl } preview={false} /> */}
                 <WorldMap />
 
+                {/* <WorldMap /> */}
 
+                {/* 搜索栏 */}
+                <SearchBar />
 
                 {/* 国家展区以及地区展区部分 */}
-                <div>
-                        <Row>
-                            <Col span={16} offset={4} style={{ background:"#D5D5D5" }}>
-                                <Row gutter={[24, 40]} justify="space-around" align="middle">
-                                    <Col span={2}> 国家展区 </Col>
-                                    { nationFlags.map((flag, index) => (
-                                        <Col key={ index } span={2}> <img src={flag} style={{width:80, height:50}}/> </Col>
-                                    ))}
-                                    <Col span={2}> 更多+ </Col>
-
-                                    <Col span={2}> 地区展区 </Col>
-                                    { regions.map((region, index) => (
-                                        <Col key={ index } span={2}> {region} </Col>
-                                    ))}
-                                    <Col span={2}> 更多+ </Col>
-                                </Row>
-                            </Col>
-                        </Row>
-                    </div>
+                <Exhibition />
 
                 {/* 新闻动态部分 */}
-                <div>
-                    <Card hoverable style={{width:240}} cover={<img src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}>
-                        <Meta title="大会活动" description="这是一个新闻小卡片" />
-                        <span> 查看更多 </span>
-                    </Card>
-                </div>
-            </Content>
 
-            <Footer>
+                {/* 商品类别目录 */}
+                <ProductCatalog />
 
-            </Footer>
-        </Layout>
+                {/* 展商+商品 */}
+                <ExhibitOverview />
+
+                {/* 世博联盟战略合作伙伴 */}
+                <Partner />
+
+            </div>
+
+            {/* 页尾 版权信息 备案 */}
+            <CustomFooter />
+
+            {/* cookie 弹窗 */}
+            <Drawer
+                placement="bottom"
+                onClose={onClose}
+                visible={visible}
+                height={120}
+                headerStyle={{ display: 'none' }}
+                drawerStyle={{
+                    ...cookieCommonStyle,
+                    width: '100%'
+                }}
+                bodyStyle={{
+                    ...cookieCommonStyle,
+                    width: '80%',
+                }}
+            >
+                <Text style={{ color: 'white', fontSize: 20 }}>
+                    如您同意我们采集您的 Cookies 等信息并向您推送最新相关资讯，
+                </Text>
+                <Text
+                    underline
+                    style={{ color: 'red', fontSize: 20, cursor: 'pointer' }}
+                    onClick={() => onClose()}
+                >
+                    点击此处
+                </Text>
+            </Drawer>
+        </>
     );
 };
 
