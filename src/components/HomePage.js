@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Row, Col, Image, List, Card } from 'antd';
+import { Layout, Row, Col, Image, Card } from 'antd';
 
 import imgUrl from '../statics/img/placeholder_img.jpg';    // PLACEHOLDER
 
