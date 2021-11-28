@@ -5,7 +5,7 @@ import './index.css';
 
 import partner_luzhou from '@/statics/img/Luzhoulaojiao.png';
 import partner_langjiu from '@/statics/img/Sichuanlangjiu.png';
-import partner_img from '@/statics/img/partner_background.jpg';
+import partner_img from '@/statics/img/partner.png';
 
 const Partner = () => {
     const partners = [
@@ -15,7 +15,7 @@ const Partner = () => {
 
     return(
         <div className="partner">
-            <Row justify="center" className="row-center">
+            <Row justify="center">
                 <Col span={10} style={{ background: "white", textAlign: "center" }}>
                     <img src={partner_img} style={{ width: 400, height: 200 }} />
                 </Col>

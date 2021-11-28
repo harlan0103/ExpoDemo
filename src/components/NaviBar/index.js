@@ -1,6 +1,8 @@
 import React from "react";
-import { Menu, Button } from 'antd';
+import { Menu, Button, Divider } from 'antd';
 import '../../statics/css/naviBar.css';
+
+import './index.css';
 
 const { SubMenu } = Menu;
 
@@ -103,7 +105,7 @@ const NaviBar = () => {
                     ) : (
                         <Menu.Item key={ item.key }>
                             { item.key == "Register" || item.key == "Login" ? 
-                                <Button type="primary" size="small"> 
+                                <Button type="primary" size="large"> 
                                     {item.title} 
                                 </Button> : 
                                 <div> 
@@ -112,7 +114,6 @@ const NaviBar = () => {
                         </Menu.Item>
                     )
                 )) }
-
             </Menu>
         </div>
     );
