@@ -8,7 +8,9 @@ import NewsAction from '../../components/NewsAction';
 import Partner from '../../components/Partner';
 import ProductCatalog from "../../components/ProductCatalog";
 import SearchBar from '../../components/SearchBar';
+import { DEFAULT_STYLE } from './Const';
 import { WorldMap } from './Map/';
+
 
 // 目前这些数据先写死，等后来服务端开发后，会从服务端获得数据
 const { Text } = Typography;
@@ -48,7 +50,7 @@ const HomePage = () => {
                 <NewsAction />
 
                 {/* 商品类别目录 */}
-                <ProductCatalog />
+                <ProductCatalog defatulStyle={DEFAULT_STYLE} />
 
                 {/* 展商+商品 */}
                 <ExhibitOverview />

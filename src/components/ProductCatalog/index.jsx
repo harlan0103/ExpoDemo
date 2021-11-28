@@ -1,8 +1,14 @@
-import { Space } from 'antd';
+import { Space, Row, Col } from 'antd';
 import React, { useMemo, useState } from 'react';
 import './index.scss';
 
-const ProductCatalog = () => {
+const ProductCatalog = (props) => {
+
+
+    const { defatulStyle = {} } = props;
+
+    console.log(defatulStyle);
+
 
     const [categioryList, setCategioryList] = useState([
         {
@@ -56,23 +62,40 @@ const ProductCatalog = () => {
     ])
 
     const categioryCards = useMemo(() => {
-        const content =
-            <Space size={[50, 50]} wrap>
-                {
-                    categioryList.map(item =>
-                        <div className="catalog-item catalog-item-cover">
-                            {item.title}
-                        </div>
-                    )
-                }
-            </Space>;
 
+        let rowIndex = -1;
+        const categioryGrid = categioryList.reduce((acc, cur, index) => {
+            if (index % 4 === 0) {
+                acc.push([cur]);
+                rowIndex += 1;
+                return acc;
+            } else {
+                acc[rowIndex].push(cur);
+                return acc;
+            }
+        }, []);
+
+
+        const content = categioryGrid.map(row =>
+            <Row justify="space-between">
+                {row.map(col =>
+                    <Col>
+                        <div className="catalog-item catalog-item-cover">{col.title}</div>
+                    </Col>
+                )}
+            </Row>
+        );
         return content;
     }, [categioryList])
 
 
     return (
-        <div className="product-catalog">
+        <div
+            className="product-catalog"
+            style={{
+                ...defatulStyle
+            }}
+        >
             <div className="product-catalog-body">
                 {categioryCards}
             </div>
