@@ -91,7 +91,7 @@ const WorldMap = () => {
                         top: city.top,
                         left: city.left,
                     }}
-                    onMouseEnter={() => cityMouseEnter(index)}
+                    onMouseMove={() => cityMouseEnter(index)}
                     onMouseOut={() => cityMouseOut(index)}
                 >
                     <div

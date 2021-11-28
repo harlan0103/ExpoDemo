@@ -9,7 +9,7 @@ import ProductCatalog from "../../components/ProductCatalog";
 import SearchBar from '../../components/SearchBar';
 import { WorldMap } from './Map/';
 
-
+import { DEFAULT_STYLE } from './Const' 
 
 // 目前这些数据先写死，等后来服务端开发后，会从服务端获得数据
 const { Text } = Typography;
@@ -48,7 +48,7 @@ const HomePage = () => {
                 {/* 新闻动态部分 */}
 
                 {/* 商品类别目录 */}
-                <ProductCatalog />
+                <ProductCatalog defatulStyle={ DEFAULT_STYLE } />
 
                 {/* 展商+商品 */}
                 <ExhibitOverview />
