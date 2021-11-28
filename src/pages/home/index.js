@@ -15,6 +15,8 @@ import imgUrl from '@/statics/img/placeholder_img.jpg';
 import flag_sg from '@/statics/img/sg.png';
 import { Card, Col, Image, Layout, Row } from 'antd';
 import React, { useState } from 'react';
+import ExhibitOverview from '../../components/ExhibitOverview';
+import ProductCatalog from "../../components/ProductCatalog";
 
 
 
@@ -47,6 +49,7 @@ const HomePage = () => {
                 <Image src={imgUrl} preview={false} />
                 {/* <WorldMap /> */}
 
+                {/* 搜索栏 */}
                 <SearchBar />
 
                 {/* 国家展区以及地区展区部分 */}
@@ -77,6 +80,12 @@ const HomePage = () => {
                         <span> 查看更多 </span>
                     </Card>
                 </div>
+
+                {/* 商品类别目录 */}
+                <ProductCatalog />
+
+                {/* 展商+商品 */}
+                <ExhibitOverview />
             </Content>
 
             <Footer>

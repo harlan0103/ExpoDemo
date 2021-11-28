@@ -4,5 +4,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    height: 100px;
+}
+
+.search-input {
+    background: transparent;
+    border: 1px solid white;
+    .ant-input {
+        background: transparent;
+    }
+
+    // [class~="ant-input"] {
+    //     background: transparent;
+    //     border-right: 0;
+    // }
+}
+
+.popular-regions {
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+    color: white;
+    margin-top: 10px;
 }

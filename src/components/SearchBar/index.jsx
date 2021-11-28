@@ -1,3 +1,4 @@
+import { SearchOutlined } from '@ant-design/icons';
 import { AutoComplete, Input, Space, Typography } from 'antd';
 import React, { useMemo, useRef } from 'react';
 import './index.scss';
@@ -10,16 +11,19 @@ const SearchBar = () => {
 
     const popularRegions = useMemo(() => {
         const regions = popularRegionsStr.current.map((item, index) => {
+            const fontStyle = {
+                cursor: "pointer",
+                color: 'white'
+            }
+
             if (index === (popularRegionsStr.current.length - 1)) {
-                return <Text underline key={item}>{`${item}馆`}</Text>
+                return <Text underline key={item} style={fontStyle}>{`${item}馆`}</Text>
             }
             return (
                 <Text
                     underline
                     key={item}
-                    style={{
-                        cursor: "pointer"
-                    }}
+                    style={fontStyle}
                 >
                     {`${item}馆`}
                 </Text>
@@ -36,13 +40,25 @@ const SearchBar = () => {
         <div className="search-bar-body">
             {/* <div style={{ width: '100%' }}> */}
             <AutoComplete
-                style={{ width: "60%", marginTop: 10, backgroundColor: 'transparent' }}
+                style={{ width: "60%", marginTop: 10 }}
                 options={options.current}
             >
-                <Input.Search size="large" placeholder="填写搜索关键字" />
+                <Input
+                    size="large"
+                    placeholder="填写搜索关键字"
+                    className="search-input"
+                    suffix={<SearchOutlined style={{ color: "#FFFFFF" }} />}
+                />
             </AutoComplete>
-            <div style={{ width: "60%", display: 'flex', justifyContent: 'flex-start' }}>
-                热门搜索: {popularRegions}
+            <div className="popular-regions" >
+                <Space>
+                    <div>
+                        热门搜索:
+                    </div>
+                    <div>
+                        {popularRegions}
+                    </div>
+                </Space>
             </div>
             {/* </div> */}
         </div>
