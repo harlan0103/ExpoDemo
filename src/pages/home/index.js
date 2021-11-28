@@ -1,5 +1,5 @@
 import imgUrl from '@/statics/img/placeholder_img.jpg';
-import { Image } from 'antd';
+import { Drawer, Image, Typography } from 'antd';
 import React, { useState } from 'react';
 import Exhibition from '../../components/Exhibition';
 import ExhibitOverview from '../../components/ExhibitOverview';
@@ -9,15 +9,24 @@ import Partner from '../../components/Partner';
 import ProductCatalog from "../../components/ProductCatalog";
 import SearchBar from '../../components/SearchBar';
 
-
-
+const { Text } = Typography;
 
 const HomePage = () => {
+    const [visible, setVisible] = useState(true);
 
-    const [imgWidth, imgHeight] = useState(0);
+    const onClose = () => {
+        setVisible(false);
+    };
+
+    const cookieCommonStyle = {
+        backgroundColor: "rgb(51,51,51)",
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
 
     return (
-        <div>
+        <>
             <CustomeHeader />
 
             <div>
@@ -47,7 +56,35 @@ const HomePage = () => {
 
             {/* 页尾 版权信息 备案 */}
             <CustomFooter />
-        </div>
+
+            {/* cookie 弹窗 */}
+            <Drawer
+                placement="bottom"
+                onClose={onClose}
+                visible={visible}
+                height={120}
+                headerStyle={{ display: 'none' }}
+                drawerStyle={{
+                    ...cookieCommonStyle,
+                    width: '100%'
+                }}
+                bodyStyle={{
+                    ...cookieCommonStyle,
+                    width: '80%',
+                }}
+            >
+                <Text style={{ color: 'white', fontSize: 20 }}>
+                    如您同意我们采集您的 Cookies 等信息并向您推送最新相关资讯，
+                </Text>
+                <Text
+                    underline
+                    style={{ color: 'red', fontSize: 20, cursor: 'pointer' }}
+                    onClick={() => onClose()}
+                >
+                    点击此处
+                </Text>
+            </Drawer>
+        </>
     );
 };
 
