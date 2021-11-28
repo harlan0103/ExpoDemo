@@ -1,0 +1,63 @@
+@use 'sass:math';
+
+.container {
+    position: relative;
+    width: 100%;
+
+    .city {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        // 呼吸圈的长宽
+        // $circle-width: 20px;
+        $circle-width: 15px;
+        $circle-height: $circle-width;
+
+        // 圆点的长宽
+        $dot-width: math.div($circle-width, 2);
+        $dot-height: $dot-width;
+
+        .city-circle {
+            width: $circle-width;
+            height: $circle-height;
+            border: 1px solid red;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            -webkit-animation: growUp 1.5s;
+            -moz-animation: growUp 1.5s;
+            -ms-animation: growUp 1.5s;
+            -o-animation: growUp 1.5s;
+            animation: growUp 1.5s;
+            animation-fill-mode: backwards;
+        }
+
+        @-webkit-keyframes growUp {
+            0% { -webkit-transform: scale(0.5); }
+            100% { -webkit-transform: scale(1.5); }
+        }
+        @keyframes growUp {
+            0% { transform: scale(0.5); }
+            100% { transform: scale(1.5); }
+        }
+
+        .city-dot {
+            position: absolute;
+            width: $dot-width;
+            height: $dot-height;
+            left: math.div($dot-width, 2);
+            background: red;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .left-city-name {
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
