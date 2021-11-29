@@ -83,7 +83,6 @@ const ProductCatalog = (props) => {
         return content;
     }, [categioryList])
 
-
     return (
         <div
             className="product-catalog"

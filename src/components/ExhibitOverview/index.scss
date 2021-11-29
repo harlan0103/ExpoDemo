@@ -59,3 +59,33 @@
     padding-left: 20px;
 }
 
+
+.ant-carousel .slick-prev,
+.ant-carousel .slick-next,
+.ant-carousel .slick-prev:hover,
+.ant-carousel .slick-next:hover {
+    font-size: inherit;
+    color: currentColor;
+}
+
+.ant-carousel .slick-prev,
+.ant-carousel .slick-prev:hover {
+    left: 10px;
+    z-index: 2;
+    font-size: large;
+    color: rgb(204, 204, 204);
+}
+
+.ant-carousel .slick-next,
+.ant-carousel .slick-next:hover {
+  right: 10px;
+  z-index: 2;
+  font-size: large;
+  color: rgb(204, 204, 204);
+}
+
+
+.exhibit-item-wrap {
+    display: flex !important;
+    justify-content: center;
+}

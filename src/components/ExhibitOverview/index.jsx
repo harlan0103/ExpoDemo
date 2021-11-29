@@ -1,11 +1,17 @@
 import chemicalProducts from '@/statics/img/chemical_products.jpg';
+import clothes from '@/statics/img/clothes.jpg';
+import energy from '@/statics/img/energy.jpg';
 import food from '@/statics/img/food.jpg';
 import hardwareTools from '@/statics/img/hardware_tools.jpg';
 import homeAppliances from '@/statics/img/home_appliances.jpg';
-import { Input, Select, Space, Typography } from 'antd';
+import illumination from '@/statics/img/illumination.jpg';
+import machine from '@/statics/img/machine.jpg';
+import medicalTreatment from '@/statics/img/medicalTreatment.jpg';
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
+// import { LeftCircleTwoTone, RightCircleTwoTone } from "@ant-design/icons";
+import { Carousel, Input, Select, Space, Typography } from 'antd';
 import React, { useMemo, useState } from 'react';
 import './index.scss';
-
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -19,6 +25,41 @@ const ExhibitOverview = (props) => {
     });
 
     const [categioryList, setCategioryList] = useState([
+        {
+            title: "照明",
+            img: illumination,
+            exhibitsCount: 0,
+            exhibitorsCount: 0,
+            subCategiories: ['家用灯具', '工业照明'],
+        },
+        {
+            title: "纺织服装",
+            img: clothes,
+            exhibitsCount: 0,
+            exhibitorsCount: 0,
+            subCategiories: ['男士', '女士', '儿童'],
+        },
+        {
+            title: "机械",
+            img: machine,
+            exhibitsCount: 0,
+            exhibitorsCount: 0,
+            subCategiories: ['矿山设备', '水泥设备', '配件'],
+        },
+        {
+            title: "能源",
+            img: energy,
+            exhibitsCount: 0,
+            exhibitorsCount: 0,
+            subCategiories: ['风电', '火电', '太阳能'],
+        },
+        {
+            title: "医药及医药保健",
+            img: medicalTreatment,
+            exhibitsCount: 0,
+            exhibitorsCount: 0,
+            subCategiories: ['外科', '防护', '儿童'],
+        },
         {
             title: "家电",
             img: homeAppliances,
@@ -50,38 +91,46 @@ const ExhibitOverview = (props) => {
     ]);
 
     const categioryCards = useMemo(() => {
-        const content =
-            <Space size={[50, 50]} wrap>
+        const content = (
+            <Carousel
+                arrows={true}
+                prevArrow={<LeftOutlined />}
+                nextArrow={<RightOutlined />}
+                slidesToShow={3}
+            >
                 {
                     categioryList.map(item =>
-                        <div className="flip-container">
-                            <div class="flipper">
-                                <div class="front"
-                                    style={{
-                                        display: 'flex',
-                                        flexDirection: 'column',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                    }}
-                                >
-                                    {/* 正面内容 */}
-                                    <Title level={5}>{item.title}</Title>
-                                    <img src={item.img} alt={item.title} style={{ width: 150, height: 150 }} />
-                                    <Space>
-                                        <div>{item.exhibitsCount}个展区</div>
-                                        <div>{item.exhibitsCount}个展商</div>
-                                    </Space>
-                                </div>
-                                <div class="back">
-                                    {/* 背面内容 */}
-                                    <Title level={5}>{item.title}</Title>
-                                    {item.subCategiories.map(subCategiory => <div>{ subCategiory }</div>)}
+                        <div className="exhibit-item-wrap">
+                            <div className="flip-container" >
+                                <div class="flipper">
+                                    <div class="front"
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                        }}
+                                    >
+                                        {/* 正面内容 */}
+                                        <Title level={5}>{item.title}</Title>
+                                        <img src={item.img} alt={item.title} style={{ width: 150, height: 150 }} />
+                                        <Space>
+                                            <div>{item.exhibitsCount}个展区</div>
+                                            <div>{item.exhibitsCount}个展商</div>
+                                        </Space>
+                                    </div>
+                                    <div class="back">
+                                        {/* 背面内容 */}
+                                        <Title level={5}>{item.title}</Title>
+                                        {item.subCategiories.map(subCategiory => <div>{subCategiory}</div>)}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     )
                 }
-            </Space>;
+            </Carousel>
+        );
 
         return content;
     }, [categioryList])
@@ -112,7 +161,7 @@ const ExhibitOverview = (props) => {
 
             </div>
 
-            <div style={{ marginTop: 30, marginBottom: 30 }}>
+            <div style={{ marginTop: 30, marginBottom: 30, width: '100%' }}>
                 {categioryCards}
             </div>
 
