@@ -29,22 +29,17 @@ const NewsAction = (props) => {
 
     const newCards = useMemo(() => {
         const content =
-            <div>
-                <Row justify="space-between">
-                    {newsList.current.map(item =>
-                        <Col>
-                            <Card
-                                hoverable
-                                style={{ width: 240 }}
-                                cover={<img alt="example" src={item.img} />}
-                            >
-                                <Meta title={item.title} description="查看更多 >" />
-                            </Card>
-                        </Col>
-                    )
-                    }
-                </Row>
-            </div>
+            <Space size="large" style={{ width: '100%', justifyContent: 'center' }}>
+                {newsList.current.map(item =>
+                    <Card
+                        hoverable
+                        style={{ width: 240 }}
+                        cover={<img alt="example" src={item.img} />}
+                    >
+                        <Meta title={item.title} description="查看更多 >" />
+                    </Card>
+                )}
+            </Space>
 
         return content
     }, [newsList])
