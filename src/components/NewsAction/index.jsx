@@ -2,14 +2,16 @@ import activitiesImg from '@/statics/img/activities.png';
 import exhibitionNewsImg from '@/statics/img/exhibition_news.png';
 import backgroundImg from '@/statics/img/new_action_background.png';
 import notificationImg from '@/statics/img/notification.png';
-import { Card, Space, Typography } from 'antd';
+import { Card, Space, Typography, Row, Col } from 'antd';
 import React, { useMemo, useRef } from 'react';
 import './index.scss';
 
 const { Title } = Typography;
 const { Meta } = Card;
 
-const NewsAction = () => {
+const NewsAction = (props) => {
+    const { defatulStyle = {} } = props;
+
     const newsList = useRef([
         {
             title: '大会活动',
@@ -27,18 +29,22 @@ const NewsAction = () => {
 
     const newCards = useMemo(() => {
         const content =
-            <Space size={50}>
-                {newsList.current.map(item =>
-                    <Card
-                        hoverable
-                        style={{ width: 240 }}
-                        cover={<img alt="example" src={item.img} />}
-                    >
-                        <Meta title={item.title} description="查看更多 >" />
-                    </Card>
-                )
-                }
-            </Space>
+            <div>
+                <Row justify="space-between">
+                    {newsList.current.map(item =>
+                        <Col>
+                            <Card
+                                hoverable
+                                style={{ width: 240 }}
+                                cover={<img alt="example" src={item.img} />}
+                            >
+                                <Meta title={item.title} description="查看更多 >" />
+                            </Card>
+                        </Col>
+                    )
+                    }
+                </Row>
+            </div>
 
         return content
     }, [newsList])
@@ -66,7 +72,9 @@ const NewsAction = () => {
             >
                 <div
                     style={{
-                        width: "60%"
+                        // width: "60%"
+                        ...defatulStyle,
+                        width: "100%",
                     }}
                 >
                     <Title level={2}>新闻与活动</Title>

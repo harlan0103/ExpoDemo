@@ -10,7 +10,9 @@ import './index.scss';
 const { Title, Text } = Typography;
 const { Option } = Select;
 
-const ExhibitOverview = () => {
+const ExhibitOverview = (props) => {
+    const { defatulStyle = {} } = props;
+
     const [exhibitInfo, setExhibitInfo] = useState({
         categoryCount: 0,
         exhibitionAreaCount: 0
@@ -76,7 +78,7 @@ const ExhibitOverview = () => {
 
 
     return (
-        <div className="exhibit-bar">
+        <div className="exhibit-bar" style={defatulStyle}>
             <div className="exhibit-bar-title">
                 <Space align="center">
                     <div style={{ color: "rgba(0, 0, 0, 0.85)", fontWeight: 600, fontSize: 24 }}>商店+商品</div>
@@ -100,7 +102,7 @@ const ExhibitOverview = () => {
 
             </div>
 
-            <div style={{ marginTop: 30, marginBottom: 30, width: "80%" }}>
+            <div style={{ marginTop: 30, marginBottom: 30 }}>
                 {categioryCards}
             </div>
 

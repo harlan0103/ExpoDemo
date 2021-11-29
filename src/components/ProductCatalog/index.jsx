@@ -3,12 +3,7 @@ import React, { useMemo, useState } from 'react';
 import './index.scss';
 
 const ProductCatalog = (props) => {
-
-
     const { defatulStyle = {} } = props;
-
-    console.log(defatulStyle);
-
 
     const [categioryList, setCategioryList] = useState([
         {

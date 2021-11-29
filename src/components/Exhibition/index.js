@@ -51,25 +51,26 @@ const partners = [
 
 const titleSize = 4;
 
-const Exhibition = () => {
+const Exhibition = (props) => {
+    const { defatulStyle = {} } = props;
+
     return (
-        <div className="exhibition">
+        <div className="exhibition" style={defatulStyle}>
 
             <Space size="large">   </Space>
 
             <Row gutter={[16, 48]}>
-
                 {/* 国家展馆 */}
                 <Col span={24}>
                     <Row align="middle">
-                        <Col span={titleSize} align="center">
+                        <Col span={titleSize}>
                             国家展馆
                         </Col>
                         <Col span={12}>
                             <Row>
                                 {
                                     nations.map(nation => (
-                                        <Col flex={1} align="center">
+                                        <Col flex={1}>
                                             <Row>
                                                 <Col span={24}>
                                                     <img src={nation.flag} style={{ width: 80, height: 50 }} />
@@ -91,14 +92,14 @@ const Exhibition = () => {
                 {/*地方展区*/}
                 <Col span={24}>
                     <Row>
-                        <Col span={titleSize} align="center">
+                        <Col span={titleSize}>
                             地方展区
                         </Col>
                         <Col span={16}>
                             <Row>
                                 {
                                     regions.map(region => (
-                                        <Col flex={1} aligh="center">
+                                        <Col flex={1}>
                                             <span className="exhibition-item exhibition-item-cover"> {region} </span>
                                         </Col>
                                     ))
@@ -111,14 +112,14 @@ const Exhibition = () => {
                 {/*热门展台*/}
                 <Col span={24}>
                     <Row align="middle" >
-                        <Col span={titleSize} align="center">
+                        <Col span={titleSize}>
                             热门展台
                         </Col>
                         <Col span={12}>
                             <Row>
                                 {
                                     partners.map(partner => (
-                                        <Col flex={1} align="center">
+                                        <Col flex={1}>
                                             <Row>
                                                 <Col span={24}>
                                                     <img src={partner.img} style={{ width: 200, height: 100 }} />

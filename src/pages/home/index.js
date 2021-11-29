@@ -35,25 +35,22 @@ const HomePage = () => {
 
             <div>
                 {/* 需要将图片宽度与窗口宽度保持一致 */}
-                {/* <Image src={ imgUrl } preview={false} /> */}
                 <WorldMap />
-
-                {/* <WorldMap /> */}
 
                 {/* 搜索栏 */}
                 <SearchBar />
 
                 {/* 国家展区以及地区展区部分 */}
-                <Exhibition />
+                <Exhibition defatulStyle={DEFAULT_STYLE} />
 
                 {/* 新闻动态部分 */}
-                <NewsAction />
+                <NewsAction defatulStyle={DEFAULT_STYLE} />
 
                 {/* 商品类别目录 */}
                 <ProductCatalog defatulStyle={DEFAULT_STYLE} />
 
                 {/* 展商+商品 */}
-                <ExhibitOverview />
+                <ExhibitOverview defatulStyle={DEFAULT_STYLE} />
 
                 {/* 世博联盟战略合作伙伴 */}
                 <Partner />

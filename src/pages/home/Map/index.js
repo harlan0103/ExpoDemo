@@ -1,9 +1,12 @@
 import React, { useState, useRef  } from 'react';
+import {
+    HomeOutlined,
+    MessageOutlined,
+    PhoneOutlined,
+  } from '@ant-design/icons';
 
 import './index.scss'
 import worldMapImg from  '@/statics/img/world_map.png'
-
-// import { DEFAULT_PADDING } from '../Const'
 
 // 参展国家的信息和在地图上的相对位置，目前写死，以后可以从服务端获得
 const rawCities = [
@@ -74,6 +77,43 @@ const WorldMap = () => {
         setCities(newCities);
     }
 
+    
+    // 右边的工具栏
+    const toolbar = () => {
+        // icon的样式
+        const iconStyle = {
+            fontSize: 24,
+            color: 'white',
+        };
+
+        const iconData = [
+            {
+                name: '帮助中心',
+                Icon: MessageOutlined,
+            },
+            {
+                name: '在线客服',
+                Icon: PhoneOutlined,
+            },
+            {
+                name: '回到首页',
+                Icon: HomeOutlined,
+            },
+        ];
+
+        return (
+            <div className="toolbar">
+                {iconData.map(({ name, Icon }) => (
+                    <div className="icon-wrap">
+                        <Icon style={iconStyle} />
+                        {name}
+                    </div>
+                ))}
+            </div>
+        );
+    }
+
+
     return (
         <div className="container">
             <img
@@ -114,6 +154,7 @@ const WorldMap = () => {
                     ) : null}
                 </div>
             ))}
+            { toolbar() }
         </div>
     );
 }
