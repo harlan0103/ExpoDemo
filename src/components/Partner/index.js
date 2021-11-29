@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Carousel } from 'antd';
+import { Row, Col, Carousel, Space } from 'antd';
 
 import './index.css';
 
@@ -15,6 +15,7 @@ const Partner = () => {
 
     return(
         <div className="partner">
+            <Space size="large">    </Space>
             <Row justify="center">
                 <Col span={10} style={{ background: "white", textAlign: "center" }}>
                     <img src={partner_img} style={{ width: 400, height: 200 }} />
@@ -32,6 +33,7 @@ const Partner = () => {
                     </Carousel>
                 </Col>
             </Row>
+            <Space size="large"> </Space>
         </div>
     );
 };
