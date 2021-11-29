@@ -29,7 +29,7 @@ const NewsAction = (props) => {
 
     const newCards = useMemo(() => {
         const content =
-            <Space size="large" style={{ width: '100%', justifyContent: 'center' }}>
+            <Space size={ 200 } style={{ width: '100%', justifyContent: 'center' }}>
                 {newsList.current.map(item =>
                     <Card
                         hoverable
