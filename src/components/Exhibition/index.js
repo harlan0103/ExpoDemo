@@ -72,12 +72,12 @@ const Exhibition = (props) => {
                                     nations.map(nation => (
                                         <Col flex={1}>
                                             <Row>
-                                                <Col span={24}>
+                                                <Col span={24} align="center">
                                                     <img src={nation.flag} style={{ width: 80, height: 50 }} />
                                                 </Col>
                                             </Row>
                                             <Row>
-                                                <Col span={24}>
+                                                <Col span={24} align="center">
                                                     <span className="exhibition-item exhibition-item-cover"> {nation.nation} </span>
                                                 </Col>
                                             </Row>
@@ -99,7 +99,7 @@ const Exhibition = (props) => {
                             <Row>
                                 {
                                     regions.map(region => (
-                                        <Col flex={1}>
+                                        <Col flex={1} align="center">
                                             <span className="exhibition-item exhibition-item-cover"> {region} </span>
                                         </Col>
                                     ))
@@ -121,12 +121,12 @@ const Exhibition = (props) => {
                                     partners.map(partner => (
                                         <Col flex={1}>
                                             <Row>
-                                                <Col span={24}>
+                                                <Col span={24} align="center">
                                                     <img src={partner.img} style={{ width: 200, height: 100 }} />
                                                 </Col>
                                             </Row>
                                             <Row>
-                                                <Col span={24}>
+                                                <Col span={24} align="center">
                                                     <span className="exhibition-item exhibition-item-cover"> {partner.name} </span>
                                                 </Col>
                                             </Row>
