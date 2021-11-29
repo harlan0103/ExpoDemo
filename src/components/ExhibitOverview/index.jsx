@@ -24,50 +24,60 @@ const ExhibitOverview = (props) => {
             img: homeAppliances,
             exhibitsCount: 0,
             exhibitorsCount: 0,
+            subCategiories: ['家用电器', '数码', '电脑'],
         },
         {
             title: "化工产品",
             img: chemicalProducts,
             exhibitsCount: 0,
             exhibitorsCount: 0,
+            subCategiories: ['有机原料', '生物化工'],
         },
         {
             title: "五金工具",
             img: hardwareTools,
             exhibitsCount: 0,
             exhibitorsCount: 0,
+            subCategiories: ['建筑五金', '日用五金', '家居五金'],
         },
         {
             title: "食品",
             img: food,
             exhibitsCount: 0,
             exhibitorsCount: 0,
+            subCategiories: ['粮食和粮食制品', '肉和肉制品', '饮品'],
         },
-    ])
-
+    ]);
 
     const categioryCards = useMemo(() => {
         const content =
             <Space size={[50, 50]} wrap>
                 {
                     categioryList.map(item =>
-                        <div
-                            style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                backgroundColor: 'white',
-                                width: 220,
-                                height: 220
-                            }}
-                        >
-                            <Title level={5}>{item.title}</Title>
-                            <img src={item.img} alt={item.title} style={{ width: 150, height: 150 }} />
-                            <Space>
-                                <div>{item.exhibitsCount}个展区</div>
-                                <div>{item.exhibitsCount}个展商</div>
-                            </Space>
+                        <div className="flip-container">
+                            <div class="flipper">
+                                <div class="front"
+                                    style={{
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                    }}
+                                >
+                                    {/* 正面内容 */}
+                                    <Title level={5}>{item.title}</Title>
+                                    <img src={item.img} alt={item.title} style={{ width: 150, height: 150 }} />
+                                    <Space>
+                                        <div>{item.exhibitsCount}个展区</div>
+                                        <div>{item.exhibitsCount}个展商</div>
+                                    </Space>
+                                </div>
+                                <div class="back">
+                                    {/* 背面内容 */}
+                                    <Title level={5}>{item.title}</Title>
+                                    {item.subCategiories.map(subCategiory => <div>{ subCategiory }</div>)}
+                                </div>
+                            </div>
                         </div>
                     )
                 }

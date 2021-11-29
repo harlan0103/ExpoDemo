@@ -103,8 +103,8 @@ const WorldMap = () => {
 
         return (
             <div className="toolbar">
-                {iconData.map(({ name, Icon }) => (
-                    <div className="icon-wrap">
+                {iconData.map(({ name, Icon }, index) => (
+                    <div key={index} className="icon-wrap">
                         <Icon style={iconStyle} />
                         {name}
                     </div>
