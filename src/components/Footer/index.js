@@ -7,7 +7,7 @@ const CustomFooter = () => {
     return(
         <div className="footer">
             <span>
-                版权所有：世博研究发展（国际）联盟 { space } IPC备案号：
+                版权所有：世博研究发展（国际）联盟 { space } ICP备案号：
             </span>
         </div>
     );
