@@ -88,6 +88,8 @@ const data = {
 
 const NaviBar = () => {
 
+    const rightStyle = { position: 'absolute', top: 0, right: 0 };
+
     return (
         <div>
             <Menu mode="horizontal" theme="light">
@@ -115,6 +117,19 @@ const NaviBar = () => {
                     )
                 ))}
             </Menu>
+            
+            {/*
+                <Menu mode="horizontal">
+                <Menu.Item> Cookies </Menu.Item>
+                <Menu.Item> Cookies2 </Menu.Item>
+                <Menu.Item style={rightStyle}> Right </Menu.Item>
+                </Menu>
+            */}
+
+            <div>
+                
+            </div>
+            
         </div>
     );
 }
